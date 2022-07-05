@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class Pedido {
@@ -17,8 +18,11 @@ public class Pedido {
 	private String nomeProduto;
 	private BigDecimal valorNegociado;
 	private LocalDate dataDaEntrega;
+	@Lob
 	private String urlProduto;
+	@Lob
 	private String urlImagem;
+	@Lob
 	private String descricao;
 
 	public String getNomeProduto() {

@@ -2,6 +2,7 @@ package br.com.alura.mvc.mudi.dto;
 
 import javax.validation.constraints.NotBlank;
 
+import br.com.alura.mvc.Util.Util;
 import br.com.alura.mvc.mudi.model.Pedido;
 
 public class RequisicaoNovoPedido {
@@ -16,6 +17,15 @@ public class RequisicaoNovoPedido {
 	private String urlImagem;
 	private String descricao;
 	
+	private String dataDaEntregaString;
+	
+	
+	public String getDataDaEntregaString() {
+		return dataDaEntregaString;
+	}
+	public void setDataDaEntregaString(String dataDaEntregaString) {
+		this.dataDaEntregaString = dataDaEntregaString;
+	}
 	public String getNomeProduto() {
 		return nomeProduto;
 	}
