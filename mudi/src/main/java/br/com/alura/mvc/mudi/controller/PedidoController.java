@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.com.alura.mvc.Util.Util;
 import br.com.alura.mvc.mudi.dto.RequisicaoNovoPedido;
 import br.com.alura.mvc.mudi.model.Pedido;
+import br.com.alura.mvc.mudi.model.StatusPedido;
 import br.com.alura.mvc.mudi.repository.PedidoRepository;
 
 @Controller
@@ -34,9 +35,7 @@ public class PedidoController {
 		}
 
 		Pedido pedido = requisicao.toPedido();
-		System.out.println("DATA STRING:" + dataDaEntregaString + "*******************");
 		pedido.setDataDaEntrega(Util.parseDate(dataDaEntregaString));
-		System.out.println("DATA ld:" + pedido.getDataDaEntrega() + "*******************");
 		pedidoRepository.save(pedido);
 
 		return "redirect:/home";

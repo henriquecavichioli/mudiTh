@@ -1,31 +1,30 @@
 package br.com.alura.mvc.mudi.dto;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.NotBlank;
 
 import br.com.alura.mvc.Util.Util;
 import br.com.alura.mvc.mudi.model.Pedido;
+import br.com.alura.mvc.mudi.model.StatusPedido;
 
 public class RequisicaoNovoPedido {
 
-	@NotBlank //NotBlank.requisicaoNovoPedido.nomeProduto=não pode estar em branco
 	private String nomeProduto;
-	
-	@NotBlank
 	private String urlProduto;
-	
-	@NotBlank
 	private String urlImagem;
 	private String descricao;
 	
-	private String dataDaEntregaString;
+	@Enumerated(EnumType.STRING)
+	private StatusPedido status;
 	
-	
-	public String getDataDaEntregaString() {
-		return dataDaEntregaString;
+	public StatusPedido getStatus() {
+		return status;
 	}
-	public void setDataDaEntregaString(String dataDaEntregaString) {
-		this.dataDaEntregaString = dataDaEntregaString;
+	public void setStatus(StatusPedido status) {
+		this.status = status;
 	}
+
 	public String getNomeProduto() {
 		return nomeProduto;
 	}
@@ -56,6 +55,7 @@ public class RequisicaoNovoPedido {
 		pedido.setNomeProduto(nomeProduto);
 		pedido.setUrlImagem(urlImagem);
 		pedido.setUrlProduto(urlProduto);
+		pedido.setStatus(status);
 		return pedido;
 	}
 	
